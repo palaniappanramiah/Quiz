@@ -1,0 +1,48 @@
+﻿@model MvcDemo.Models.TestDB
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>TestDB</legend>
+
+    <div class="display-label">Question</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Question)
+    </div>
+
+    <div class="display-label">Choice1</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Choice1)
+    </div>
+
+    <div class="display-label">Choice2</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Choice2)
+    </div>
+
+    <div class="display-label">Choice3</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Choice3)
+    </div>
+
+    <div class="display-label">Choice4</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Choice4)
+    </div>
+
+    <div class="display-label">CorrectAnswer</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CorrectAnswer)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

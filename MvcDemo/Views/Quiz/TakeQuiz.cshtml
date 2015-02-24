@@ -1,0 +1,44 @@
+﻿@model IEnumerable<MvcDemo.Models.TestDB>
+<script src="@Url.Content("~/Scripts/jquery-2.1.1.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/answer.js")" type="text/javascript"></script>
+@{
+    ViewBag.Title = "Quiz";
+}
+
+@if (Request.IsAuthenticated)
+{
+foreach (var item in Model)
+    {
+    @Html.DisplayFor(modelItem => item.ID)
+    <label for="point">.</label>
+    @Html.DisplayFor(modelItem => item.Question)
+    <br />
+    <br />
+    <input type="checkbox" name="choices[]" id="choice1" value="choice1" />@Html.DisplayFor(modelItem => item.Choice1)
+    <br />
+    <input type="checkbox" name="choices[]" id="choice2" value="choice2" />@Html.DisplayFor(modelItem => item.Choice2)
+    <br />
+    <input type="checkbox" name="choices[]" id="choice3" value="choice3" />@Html.DisplayFor(modelItem => item.Choice3)
+    <br />
+    <input type="checkbox" name="choices[]" id="choice4" value="choice4" />@Html.DisplayFor(modelItem => item.Choice4)
+    <br />
+    <br />
+    <input type="radio" name="radio" id="choice5" value="choice2" />
+    
+    <div class="submit-wrap">
+        <input type="button" value="Submit" id="submit">
+    </div>
+    }
+
+    
+    <p id="selectAnswer">Oops!Please select at least one answer to proceed.</p>
+    <p id="correctAnswer">The answer is correct.</p>
+    <p id="wrongAnswer">The answer is wrong.</p>
+
+}
+
+else
+{
+    <h2>To Continue</h2>
+    @Html.ActionLink("Log on", "LogOn", "Account")
+}

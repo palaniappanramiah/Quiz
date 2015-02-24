@@ -1,0 +1,63 @@
+﻿@model IEnumerable<MvcDemo.Models.TestDB>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            Question
+        </th>
+        <th>
+            Choice1
+        </th>
+        <th>
+            Choice2
+        </th>
+        <th>
+            Choice3
+        </th>
+        <th>
+            Choice4
+        </th>
+        <th>
+            CorrectAnswer
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Question)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Choice1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Choice2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Choice3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Choice4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CorrectAnswer)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
